@@ -1,0 +1,32 @@
+### API ADMINISTRADOR - GET
+GET http://localhost:8080/api/v1/administrador
+Content-Type: application/json
+
+### API ADMINISTRADOR - POST
+POST http://localhost:8080/api/v1/administrador
+Content-Type: application/json
+
+{
+    "id": 0,
+    "nome": "Maria",
+    "email": "ze@gmail.com",
+    "matriculaADM": "123456"
+}
+
+### API ADMINISTRADOR - PUT
+PUT http://localhost:8080/api/v1/administrador/1
+Content-Type: application/json
+
+{
+    "nome": "Maria da Silva",
+    "email": "maria@gmail.com",
+    "matriculaADM": "12345"
+}
+
+### API ADMINISTRADOR - DELETE
+DELETE http://localhost:8080/api/v1/administrador/1
+Content-Type: application/json
+
+{
+    
+}

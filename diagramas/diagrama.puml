@@ -1,0 +1,67 @@
+@startuml
+package br.univille.projfabsoftescolamusica.entity {
+    class Aluno {
+        - Long id
+        - String nome
+        --
+        + Long getId()
+        + void setId(Long id)
+        + String getNome()
+        + void setNome(String nome)
+    }
+
+    class Instrumento {
+        - Long id
+        - String codigo
+        - String nome
+        - String tipo
+        - boolean sobressalentes
+        --
+        + Long getId()
+        + void setId(Long id)
+        + String getCodigo()
+        + void setCodigo(String codigo)
+        + String getNome()
+        + void setNome(String nome)
+        + String getTipo()
+        + void setTipo(String tipo)
+        + boolean isSobressalentes()
+        + void setSobressalentes(boolean sobressalentes)
+    }
+
+    class Emprestimo {
+        - Long id
+        - Aluno aluno
+        - Instrumento instrumento
+        - LocalDate dataInicio
+        - LocalDate dataFim
+        --
+        + Long getId()
+        + void setId(Long id)
+        + Aluno getAluno()
+        + void setAluno(Aluno aluno)
+        + Instrumento getInstrumento()
+        + void setInstrumento(Instrumento instrumento)
+        + LocalDate getDataInicio()
+        + void setDataInicio(LocalDate dataInicio)
+        + LocalDate getDataFim()
+        + void setDataFim(LocalDate dataFim)
+    }
+
+    class Administrador {
+        - Long id
+        - String nome
+        - String email
+        --
+        + Long getId()
+        + void setId(Long id)
+        + String getNome()
+        + void setNome(String nome)
+        + String getEmail()
+        + void setEmail(String email)
+    }
+
+    Aluno "1" --> "0..*" Emprestimo : "realiza"
+    Instrumento "1" --> "0..*" Emprestimo : "é emprestado"
+}
+@enduml

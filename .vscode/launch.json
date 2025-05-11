@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "br.univille.Main",
+            "projectName": "revisao_alicia"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ProjfabsoftescolamusicaApplication<projfabsoftescolamusica>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.univille.projfabsoftescolamusica.ProjfabsoftescolamusicaApplication",
+            "projectName": "projfabsoftescolamusica",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
