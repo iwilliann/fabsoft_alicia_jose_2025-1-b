@@ -1,9 +1,11 @@
 package br.univille.projfabsoftescolamusica.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Instrumento {
@@ -14,6 +16,9 @@ public class Instrumento {
     private String nome;
     private String tipo;
     private boolean sobressalentes;
+
+    @ManyToOne (cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private Aluno aluno;
 
     // Getters e Setters
     public long getId() {
@@ -54,5 +59,13 @@ public class Instrumento {
 
     public void setSobressalentes(boolean sobressalentes) {
         this.sobressalentes = sobressalentes;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 }

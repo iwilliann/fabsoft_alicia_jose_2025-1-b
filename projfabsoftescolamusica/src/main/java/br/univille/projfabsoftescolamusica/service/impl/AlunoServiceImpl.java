@@ -34,8 +34,8 @@ public class AlunoServiceImpl implements AlunoService {
          if (retorno.isPresent()) 
            return retorno.get();
         return null;
-
-         }
+    }
+    
     @Override
     public Aluno delete(Long id) {
         var aluno = getByID(id);

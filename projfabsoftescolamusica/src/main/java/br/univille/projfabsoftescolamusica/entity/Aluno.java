@@ -1,10 +1,16 @@
 package br.univille.projfabsoftescolamusica.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 
 @Entity // identificar que é uma entidade JPA
 public class Aluno {
@@ -23,6 +29,10 @@ public class Aluno {
     @Column(length = 11, nullable = false) // CPF tem 11 dígitos
     private String cpf;
     private String sexo;
+
+    @OneToMany (cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_aluno") // chave estrangeira
+    private List<Instrumento> instrumentos = new ArrayList<>();
 
     // Getters e Setters
     public long getId() {
@@ -89,5 +99,14 @@ public class Aluno {
         this.sexo = sexo;
     }
 
+    public List<Instrumento> getInstrumentos() {
+        return instrumentos;
+    }
+
+    public void setInstrumentos(List<Instrumento> instrumentos) {
+        this.instrumentos = instrumentos;
+    }
+
+    
     
 }

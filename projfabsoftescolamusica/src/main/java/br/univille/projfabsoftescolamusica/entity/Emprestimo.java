@@ -8,15 +8,17 @@ public class Emprestimo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @ManyToOne
-    private Aluno aluno;
-
-    @ManyToOne
-    private Instrumento instrumento;
-
+    
     private LocalDate dataInicio;
     private LocalDate dataFim;
+
+    @ManyToOne (cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private Aluno aluno;
+
+    @ManyToOne (cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private Instrumento instrumento;
+
+    
 
     // Getters e Setters
     public long getId() {

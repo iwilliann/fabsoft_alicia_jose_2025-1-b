@@ -29,7 +29,6 @@ public class AlunoController {
     public ResponseEntity<List<Aluno>> getAluno(){
         var listaAluno = service.getAll();
         return new ResponseEntity<List<Aluno>>(listaAluno, HttpStatus.OK);
-        
     }
 
 
@@ -43,7 +42,6 @@ public class AlunoController {
             service.save(aluno);
             return new ResponseEntity<Aluno>(aluno, HttpStatus.OK);
         }
-        
         return ResponseEntity.badRequest().build();
     }
 

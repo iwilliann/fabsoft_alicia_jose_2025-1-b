@@ -1,0 +1,61 @@
+### API EMPRESTIMO - GET
+GET http://localhost:8080/api/v1/emprestimo
+Content-Type: application/json
+
+### API EMPRESTIMO - POST
+POST http://localhost:8080/api/v1/emprestimo
+Content-Type: application/json
+
+{
+    "dataEmprestimo": "2023-10-01",
+    "dataDevolucao": "2023-10-15",
+    "aluno": {
+        "id": 1,
+        "nome": "João da Costa Silva",
+        "cpf": "12345678901",
+        "dataNascimento": "2000-01-01",
+        "telefone": "123456789",
+        "email": "jose@gmail.com"
+    },
+    "instrumentos":
+        {
+            "id": 1,
+            "nome": "Violão",
+            "tipo": "Cordas Finas",
+            "codigo": "F310",
+            "sobressalentes": true
+        }
+}
+
+### API EMPRESTIMO - PUT
+PUT http://localhost:8080/api/v1/emprestimo/1
+Content-Type: application/json
+
+{
+    "dataEmprestimo": "2023-10-01",
+    "dataDevolucao": "2023-10-20",
+    "aluno": {
+        "id": 1,
+        "nome": "João da Costa Silva",
+        "cpf": "12345678901",
+        "dataNascimento": "2000-01-01",
+        "telefone": "123456789",
+        "email": "jose@gmail.com"
+    },
+    "instrumentos":
+        {
+            "id": 1,
+            "nome": "Violão",
+            "tipo": "Cordas Finas",
+            "codigo": "F310",
+            "sobressalentes": true
+        }
+}
+
+### API EMPRESTIMO - DELETE
+DELETE http://localhost:8080/api/v1/emprestimo/1
+Content-Type: application/json
+
+{
+    
+}
