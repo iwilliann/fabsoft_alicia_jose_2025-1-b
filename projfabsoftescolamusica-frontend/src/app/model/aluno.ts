@@ -1,3 +1,5 @@
+import { Instrumento } from "./instrumento";
+
 export class Aluno {
     id: number;
     nome: string;
@@ -7,4 +9,5 @@ export class Aluno {
     dataNascimento: string;
     cpf: string;
     sexo: string;
+    instrumento: Instrumento[];
 }
