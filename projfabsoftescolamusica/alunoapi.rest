@@ -13,14 +13,16 @@ Content-Type: application/json
     "email": "joão@gmail.com", 
     "endereco": "Rua A, 123",
     "sexo": "M",
-    "instrumentos": [
+    "instrumento": [
         {
+        
             "nome": "Violão",
             "tipo": "Cordas",
             "codigo": "F310",
             "sobressalentes": true
         },
         {
+            
             "nome": "Piano",
             "tipo": "Teclado",
             "codigo": "Yamaha P45",
@@ -41,7 +43,7 @@ Content-Type: application/json
     "telefone": "123456789",
     "email": "joao@gmail.com",
     "sexo": "M",
-    "instrumentos": [
+    "instrumento": [
         {
             "nome": "Violão",
             "tipo": "Cordas Finas",
@@ -49,6 +51,7 @@ Content-Type: application/json
             "sobressalentes": true
         },
         {
+
             "nome": "Piano",
             "tipo": "Teclado Mecânico",
             "codigo": "Yamaha P45",

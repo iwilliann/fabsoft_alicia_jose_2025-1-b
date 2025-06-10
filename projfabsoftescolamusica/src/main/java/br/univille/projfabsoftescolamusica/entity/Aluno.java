@@ -32,7 +32,7 @@ public class Aluno {
 
     @OneToMany (cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_aluno") // chave estrangeira
-    private List<Instrumento> instrumentos = new ArrayList<>();
+    private List<Instrumento> instrumento = new ArrayList<>();
 
     // Getters e Setters
     public long getId() {
@@ -99,12 +99,12 @@ public class Aluno {
         this.sexo = sexo;
     }
 
-    public List<Instrumento> getInstrumentos() {
-        return instrumentos;
+    public List<Instrumento> getInstrumento() {
+        return instrumento;
     }
 
-    public void setInstrumentos(List<Instrumento> instrumentos) {
-        this.instrumentos = instrumentos;
+    public void setInstrumento(List<Instrumento> instrumento) {
+        this.instrumento = instrumento;
     }
 
     
