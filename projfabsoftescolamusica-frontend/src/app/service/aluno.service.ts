@@ -14,4 +14,8 @@ export class AlunoService {
   getAluno(){
     return this.http.get<Aluno[]>(this.apiURL);
   }
+
+  saveAluno(aluno: Aluno){
+    return this.http.post(this.apiURL, aluno);
+  }
 }

@@ -1,1 +1,40 @@
-<p>form-aluno works!</p>
+<main class="container">
+    <h2>Aluno</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="txtNome">Nome</label>
+                <input type="text"
+                    [(ngModel)]="aluno.nome"
+                    class="form-control"
+                    id="txtNome">
+            </div>
+            <div class="form-group">
+                <label for="txtCpf">CPF</label>
+                <input type="text" [(ngModel)]="aluno.cpf" class="form-control" id="txtCpf">
+            </div>
+            <div class="form-group">
+                <label for="txtDataNascimento">Data de Nascimento</label>
+                <input type="date" [(ngModel)]="aluno.dataNascimento" class="form-control" id="txtDataNascimento">
+            </div>
+            <div class="form-group">
+                <label for="txtTelefone">Telefone</label>
+                <input type="text" [(ngModel)]="aluno.telefone" class="form-control" id="txtTelefone">
+            </div>
+            <div class="form-group">
+                <label for="txtEmail">Email</label>
+                <input type="email" [(ngModel)]="aluno.email" class="form-control" id="txtEmail">
+            </div>
+            <div class="form-group">
+                <label for="txtEndereco">Endereço</label>
+                <input type="text" [(ngModel)]="aluno.endereco" class="form-control" id="txtEndereco">
+            </div>
+            <div class="form-group">
+                <label for="txtSexo">Sexo</label>
+                <input type="text" [(ngModel)]="aluno.sexo" class="form-control" id="txtSexo">
+            </div>
+        </div>
+        <button (click)="salvar()"
+        class="btn btn-primary">Salvar</button>
+    </div>
+</main>
