@@ -2,31 +2,23 @@ import { Aluno } from "./aluno";
 import { Instrumento } from "./instrumento";
 
 export class Emprestimo {
-    id: number;
-    dataEmprestimo: string;
-    dataDevolucao: string;
-    aluno: Aluno;
-    instrumento: Instrumento;
-    status: string; // "pendente", "devolvido", "atrasado"
-    dataInicio: string; 
-    dataFim: string; 
-    
-    constructor(
-        id: number,
-        dataEmprestimo: string,
-        dataDevolucao: string,
-        aluno: Aluno,
-        instrumento: Instrumento,
-        status: string
-    ) {
-        this.id = id;
-        this.dataEmprestimo = dataEmprestimo;
-        this.dataDevolucao = dataDevolucao;
-        this.aluno = aluno;
-        this.instrumento = instrumento;
-        this.status = status;
+  id: number;
+  dataInicio: string;
+  dataFim: string;
+  aluno: Aluno;
+  instrumento: Instrumento;
 
-        this.dataInicio = ''; // <- inicialização
-        this.dataFim = '';
-    }
+  constructor(
+    id: number,
+    dataInicio: string,
+    dataFim: string,
+    aluno: Aluno,
+    instrumentos: Instrumento
+  ) {
+    this.id = id;
+    this.dataInicio = dataInicio;
+    this.dataFim = dataFim;
+    this.aluno = aluno;
+    this.instrumento = instrumentos;
+  }
 }

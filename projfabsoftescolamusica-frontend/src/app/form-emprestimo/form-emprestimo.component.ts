@@ -5,12 +5,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router,ActivatedRoute, ParamMap } from '@angular/router';
-import * as bootstrap from 'bootstrap';
+
 
 import { Aluno } from '../model/aluno';
 import { AlunoService } from '../service/aluno.service';
+
 import { Instrumento } from '../model/instrumento';
 import { InstrumentoService } from '../service/instrumento.service';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-form-emprestimo',
@@ -20,13 +22,14 @@ import { InstrumentoService } from '../service/instrumento.service';
   providers: [EmprestimoService, AlunoService, InstrumentoService, Router]
 })
 export class FormEmprestimoComponent {
+  emprestimo: Emprestimo = new Emprestimo(0, '', '', new Aluno(), new Instrumento());
+  public listaEmprestimos: Emprestimo[] = [];
+
   aluno: Aluno = new Aluno();
   public listaAluno: Aluno[] = [];
 
   instrumento: Instrumento = new Instrumento();
   public listaInstrumento: Instrumento[] = [];
-
-  emprestimo: Emprestimo;
 
   
   // @ViewChild('myModalEmprestimo') modalElementEmprestimo!: ElementRef;
@@ -40,22 +43,27 @@ export class FormEmprestimoComponent {
       private router: Router,
       private activeRouter: ActivatedRoute
     ){
-         // Inicialização segura para evitar erros de argumentos
-      this.emprestimo = new Emprestimo(
-        0,      // id
-        '',             // dataEmprestimo
-        '',             // dataDevolucao
-        new Aluno(),    // aluno
-        new Instrumento(), // instrumento
-        'pendente'      // status (ou outro valor padrão)
-      );  
       const id = this.activeRouter.snapshot.paramMap.get('id');
-        if (id) {
+      this.emprestimoService.getAlunos().subscribe((alunos: Aluno[]) => {
+        this.listaAluno = alunos;
+      });
+      
+       if (id) {
         this.emprestimoService.getEmprestimoById(id).subscribe(emprestimo => {
           this.emprestimo = emprestimo;
         });
       }
-        
+
+         // Inicialização segura para evitar erros de argumentos
+      this.emprestimo = new Emprestimo(
+        0,
+        '',  // dataInicio
+        '',  // dataFim
+        new Aluno(),
+        new Instrumento()
+      );  
+      
+      
       this.alunoService.getAluno().subscribe( alunos => {
         this.listaAluno = alunos;
       });

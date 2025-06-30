@@ -6,15 +6,15 @@
             <tr>
                 <th>Aluno</th>
                 <th>Instrumento</th>
-                <th>Data Inicio</th>
-                <th>Data Fim</th>
+                <th>Data Empréstimo</th>
+                <th>Data Devolução</th>
                 <th>Alterações</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let umEmprestimo of listaEmprestimo">
-                <td>{{umEmprestimo.aluno?.nome}}</td>
-                <td>{{umEmprestimo.instrumento?.nome}}</td>
+            <tr *ngFor="let umEmprestimo of listaEmprestimos">
+                <td>{{umEmprestimo.aluno !== null ? umEmprestimo.aluno.nome : ''}}</td>
+                <td>{{umEmprestimo.instrumento !== null? umEmprestimo.instrumento.nome: ''}}</td>
                 <td>{{umEmprestimo.dataInicio | date:'dd/MM/yyyy'}}</td>
                 <td>{{umEmprestimo.dataFim | date:'dd/MM/yyyy'}}</td>
                 <td><a (click)="alterar(umEmprestimo)" 

@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import * as bootstrap from 'bootstrap';
 
-
 @Component({
   selector: 'app-emprestimo',
   imports: [HttpClientModule, CommonModule],
@@ -15,7 +14,7 @@ import * as bootstrap from 'bootstrap';
   providers: [EmprestimoService, Router]
 })
 export class EmprestimoComponent {
-  public listaEmprestimo: Emprestimo[] = [];
+  public listaEmprestimos: Emprestimo[] = [];
 
   @ViewChild('myModal') modalElement!: ElementRef;
     private modal!: bootstrap.Modal;
@@ -26,10 +25,11 @@ export class EmprestimoComponent {
     private emprestimoService: EmprestimoService,
     private router: Router
   ) {}
-  ngOnInit() {
-    this.emprestimoService.getEmprestimo().subscribe(emprestimo => {
-      this.listaEmprestimo = emprestimo; //variavel que deveria talvez ter nome emprestimo
-    });
+
+  ngOnInit(): void{
+    this.emprestimoService.getEmprestimo().subscribe(resposta => {
+      this.listaEmprestimos = resposta;
+    })
   }
   novo(){
     this.router.navigate(['/emprestimo/novo']);
@@ -49,10 +49,10 @@ export class EmprestimoComponent {
   confirmarExclusao() {
     this.emprestimoService.excluirEmprestimo(this.emprestimoSelecionado.id).subscribe(
       () => {
-      this.fecharConfirmacao();
-      this.emprestimoService.getEmprestimo().subscribe(
-        emprestimo => { //talvez seja a variavel "resposta"
-          this.listaEmprestimo = emprestimo;
+        this.fecharConfirmacao();
+        this.emprestimoService.getEmprestimo().subscribe(
+          emprestimo => { //talvez seja a variavel "resposta"
+            this.listaEmprestimos = emprestimo;
         }
     );
   },
