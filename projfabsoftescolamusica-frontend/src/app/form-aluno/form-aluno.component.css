@@ -1,0 +1,126 @@
+/* Fundo com gradiente suave */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #d4c3f5 0%, #f9e2d0 100%);
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+}
+
+/* Container principal - Ajustado para a página de formulário */
+.container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Reduz o max-width para um formulário */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Título */
+.container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #222;
+  text-align: center; /* Centraliza o título do formulário */
+}
+
+/* Estilo do Card (agora o conteúdo do formulário está dentro de .card) */
+.card {
+    background: none; /* Remove background, as container already has it */
+    border: none; /* No border for the inner card */
+    padding: 0; /* No extra padding, container handles it */
+    box-shadow: none; /* No extra shadow, container handles it */
+}
+
+.card-body {
+    padding: 0; /* Remove default card-body padding if present */
+}
+
+/* Estilos para grupos de formulário (label + input) */
+.form-group {
+  margin-bottom: 1.2rem; /* Espaçamento entre os campos */
+}
+
+.form-group label {
+  display: block; /* Garante que o label ocupe sua própria linha */
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.5rem; /* Espaço entre o label e o input */
+  font-weight: 500;
+}
+
+/* Estilos para inputs de formulário */
+.form-control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px; /* Cantos arredondados para inputs */
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box; /* Inclui padding e border no width total */
+}
+
+.form-control:focus {
+  border-color: #6c63ff; /* Cor da borda ao focar */
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2); /* Sombra suave ao focar */
+  outline: none; /* Remove o outline padrão do navegador */
+}
+
+/* Botão Salvar (usando .btn-primary existente) */
+.btn-primary {
+  background-color: #6c63ff;
+  color: #fff;
+  padding: 0.8rem 2rem; /* Ajustado para um botão de formulário */
+  border-radius: 10px;
+  border: none;
+  font-weight: 600; /* Levemente mais bold */
+  margin-top: 1.5rem; /* Espaço acima do botão */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Adicionado transição para transform e box-shadow */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra mais proeminente */
+  width: 100%; /* Botão Salvar ocupando a largura total do card */
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #554ef1;
+  transform: translateY(-2px); /* Efeito de "levantar" */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15); /* Sombra um pouco maior no hover */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem; /* Reduz o padding do body em telas menores */
+  }
+
+  .container {
+    padding: 1.5rem; /* Reduz o padding do container em telas menores */
+  }
+
+  .container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-control {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}

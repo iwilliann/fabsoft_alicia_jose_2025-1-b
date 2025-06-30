@@ -1,0 +1,155 @@
+/* Fundo com gradiente suave */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #d4c3f5 0%, #f9e2d0 100%);
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+}
+
+/* Container principal - Ajustado para a página de formulário */
+.container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Aumentado para acomodar duas colunas */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Título */
+.container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #222;
+  text-align: center; /* Centraliza o título do formulário */
+}
+
+/* Estilo do Card (agora o conteúdo do formulário está dentro de .card) */
+.card {
+    background: none; /* Remove background, as container already has it */
+    border: none; /* No border for the inner card */
+    padding: 0; /* No extra padding, container handles it */
+    box-shadow: none; /* No extra shadow, container handles it */
+}
+
+.card-body {
+    padding: 0; /* Remove default card-body padding if present */
+    /* *** NOVAS REGRAS PARA LAYOUT HORIZONTAL *** */
+    display: grid; /* Usa CSS Grid para o layout em colunas */
+    grid-template-columns: 1fr; /* Padrão: uma coluna (para telas pequenas) */
+    gap: 1.5rem 2rem; /* Espaçamento entre as linhas e colunas */
+}
+
+/* Media query para desktop/telas maiores: duas colunas */
+@media (min-width: 768px) { /* A partir de 768px (típico para tablets/desktops) */
+    .card-body {
+        grid-template-columns: 1fr 1fr; /* Duas colunas de largura igual */
+    }
+    /* Não precisamos de grid-column para os form-groups aqui, eles se encaixam bem */
+}
+
+
+/* Estilos para grupos de formulário (label + input) */
+.form-group {
+  margin-bottom: 0; /* Remove margin-bottom, o gap do grid vai controlar */
+}
+
+.form-group label {
+  display: block; /* Garante que o label ocupe sua própria linha */
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.5rem; /* Espaço entre o label e o input */
+  font-weight: 500;
+}
+
+/* Estilos para inputs de formulário e select */
+.form-control, .form-select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px; /* Cantos arredondados para inputs */
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box; /* Inclui padding e border no width total */
+  background-color: #fff; /* Garante fundo branco para inputs e selects */
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #6c63ff; /* Cor da borda ao focar */
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2); /* Sombra suave ao focar */
+  outline: none; /* Remove o outline padrão do navegador */
+}
+
+/* Botão Salvar com gradiente e sombra aprimorada, AGORA OCUPANDO TODA A LARGURA */
+.btn-primary {
+  /* Gradiente de cor de fundo, similar ao exemplo da imagem */
+
+  color: #fff; /* Texto branco */
+  padding: 0.8rem 2rem; /* Tamanho do padding */
+  border-radius: 10px; /* Cantos arredondados */
+  border: none; /* Remove a borda */
+  font-weight: 600; /* Peso da fonte */
+  font-size: 1.05rem; /* Levemente maior para destaque */
+  margin-top: 1.5rem; /* Espaço acima do botão */
+  transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra mais proeminente e suave */
+  width: 100%; /* Ocupa a largura total do card */
+  cursor: pointer;
+  display: block; /* Garante que ocupe a largura total e se comporte como um bloco */
+  text-transform: uppercase; /* Opcional: Para texto em maiúsculas como no exemplo */
+  letter-spacing: 0.5px; /* Opcional: Espaçamento entre letras */
+
+  /* *** NOVA REGRA PARA O BOTÃO OCUPAR A LARGURA TOTAL DO GRID DO CARD-BODY *** */
+  grid-column: 1 / -1; /* Faz com que o botão ocupe todas as colunas disponíveis */
+}
+
+.btn-primary:hover {
+  /* Ajuste sutil do gradiente no hover ou use uma cor sólida mais escura */
+  background: linear-gradient(135deg, #554ef1 0%, #8ec5fc 100%); /* Gradiente um pouco mais escuro ou diferente */
+  transform: translateY(-2px); /* Efeito de "levantar" */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Sombra maior e mais intensa no hover */
+}
+
+.btn-primary:active {
+  transform: translateY(0); /* Volta à posição original no clique */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra menor no clique */
+  background: #554ef1; /* Cor sólida ou gradiente mais escuro ao clicar */
+}
+
+/* Media Queries para Responsividade geral (além do grid) */
+@media (max-width: 767px) { /* Para telas menores que 768px (celulares) */
+  body {
+    padding: 1rem; /* Reduz o padding do body em telas menores */
+  }
+
+  .container {
+    padding: 1.5rem; /* Reduz o padding do container em telas menores */
+  }
+
+  .container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-control, .form-select {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}

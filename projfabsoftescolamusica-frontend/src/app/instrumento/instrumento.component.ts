@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
   providers: [InstrumentoService,Router]
 })
 export class InstrumentoComponent {
+  sobressalente: boolean;
 
   public listaInstrumento: Instrumento[] = [];
 

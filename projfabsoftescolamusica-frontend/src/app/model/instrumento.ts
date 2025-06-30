@@ -8,5 +8,10 @@ aluno: any;
   foto: string;
   arquivoFoto: string;
   mimeType: string;
+
+   constructor() {
+    this.sobressalente = false;
+  }
 }
+
 

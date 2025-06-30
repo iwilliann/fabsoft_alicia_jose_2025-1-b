@@ -1,6 +1,8 @@
 <main class="container">
     <h2>Instrumentos</h2>
-    <a (click)="novo()" class="btn btn-primary">Novo</a>
+    <div class="btn-container">
+      <a (click)="novo()" class="btn btn-primary">Novo</a>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -20,6 +22,7 @@
                 <td>{{ umInstrumento.codigo }}</td>
                 <td>{{ umInstrumento.aluno !== null? umInstrumento.aluno.nome : '' }}</td>
                 <td>{{ umInstrumento.sobressalente ? 'Sim' : 'Não' }}</td>
+
                 <td><a (click)="alterar(umInstrumento)" 
                     class="btn btn-secondary">Alterar</a>
                     &nbsp;

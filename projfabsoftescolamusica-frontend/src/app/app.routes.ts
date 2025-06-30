@@ -18,6 +18,8 @@ export const routes: Routes = [
 
     {path: "emprestimo", component: EmprestimoComponent},  
     {path: "emprestimo/novo", component: FormEmprestimoComponent},
-    {path: "emprestimo/alterar/:id", component: FormEmprestimoComponent}  
+    {path: "emprestimo/alterar/:id", component: FormEmprestimoComponent},  
+
+    
 ];
 

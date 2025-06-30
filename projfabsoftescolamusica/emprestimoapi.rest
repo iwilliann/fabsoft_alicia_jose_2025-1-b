@@ -7,8 +7,8 @@ POST http://localhost:8080/api/v1/emprestimo
 Content-Type: application/json
 
 {
-    "dataEmprestimo": "2023-10-01",
-    "dataDevolucao": "2023-10-15",
+    "dataIncio": "2023-10-01",
+    "dataFim": "2023-10-15",
     "aluno": {
         "id": 1,
         "nome": "João da Costa Silva",
@@ -32,8 +32,8 @@ PUT http://localhost:8080/api/v1/emprestimo/1
 Content-Type: application/json
 
 {
-    "dataEmprestimo": "2023-10-01",
-    "dataDevolucao": "2023-10-20",
+    "dataIncio": "2023-10-01",
+    "dataFim": "2023-10-20",
     "aluno": {
         "id": 1,
         "nome": "João da Costa Silva",
