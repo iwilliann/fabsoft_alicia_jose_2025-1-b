@@ -4,5 +4,9 @@ export class Instrumento {
     nome: string;
     tipo: string;
     sobressalente: boolean;
+aluno: any;
+  foto: string;
+  arquivoFoto: string;
+  mimeType: string;
 }
 

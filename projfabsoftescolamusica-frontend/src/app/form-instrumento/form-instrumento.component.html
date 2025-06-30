@@ -1,0 +1,47 @@
+<main class="container">
+    <h2>Instrumento</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="txtTipo">Tipo</label>
+                <input type="text"[(ngModel)]="instrumento.tipo"
+                    class="form-control"id="txtTipo">
+            </div>
+
+            <div class="form-group">
+                <label for="txtNome">Instrumento</label>
+                <input type="text" [(ngModel)]="instrumento.nome"
+                    class="form-control" id="txtNome">
+            </div>
+
+            <div class="form-group">
+                <label for="txtCodigo">Código</label>
+                <input type="text" [(ngModel)]="instrumento.codigo"
+                    class="form-control" id="txtCodigo">
+            </div>
+
+            <div class="form-group">
+                <label for="txtSobressalente">Sobressalente</label>
+                <input type="checkbox" [(ngModel)]="instrumento.sobressalente"
+                    class="form-check-input" id="txtSobressalente">
+            </div>
+
+            <div class="form-group">
+                <label for="txtAluno">Aluno</label>
+                <select id="txtAluno" [(ngModel)]="instrumento.aluno" class="form-select" [compareWith]="comparaAlunos">
+                    <option *ngFor="let umAluno of listaAluno" [ngValue]="umAluno">{{umAluno.nome}}</option>>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fileImagem">Imagem</label>
+                <input type="file" (change)="onFileSelected($event)" class="form-control" id="fileImagem" accept="image/*">
+            </div>
+        </div>
+
+        <button (click)="salvar()"
+            class="btn btn-primary">Salvar</button>
+
+    </div>
+
+</main>                    

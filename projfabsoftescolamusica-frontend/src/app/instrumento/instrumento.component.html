@@ -1,1 +1,48 @@
-<p>instrumento works!</p>
+<main class="container">
+    <h2>Instrumentos</h2>
+    <a (click)="novo()" class="btn btn-primary">Novo</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Nome</th>
+                <th>Código</th>
+                <th>Aluno</th>
+                <th>Sobressalente</th>
+                <th>Alterações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let umInstrumento of listaInstrumento">
+                <!-- <td><img src="dara:{{umInstrumento.mimeType}};base64,{{umInstrumento.foto}}" alt="Foto do instrumento" width="200px;"></td> -->
+                <td>{{ umInstrumento.tipo }}</td>
+                <td>{{ umInstrumento.nome }}</td>
+                <td>{{ umInstrumento.codigo }}</td>
+                <td>{{ umInstrumento.aluno !== null? umInstrumento.aluno.nome : '' }}</td>
+                <td>{{ umInstrumento.sobressalente ? 'Sim' : 'Não' }}</td>
+                <td><a (click)="alterar(umInstrumento)" 
+                    class="btn btn-secondary">Alterar</a>
+                    &nbsp;
+                    <a (click)="abrirConfirmacao(umInstrumento)" 
+                    class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+    </table>
+</main>
+
+<div class="modal fade" #myModal tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Excluir instrumento</h5>
+            </div>
+            <div class="modal-body">
+            Confirma a exclusão do instrumento?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="fecharConfirmacao()">Cancelar</button>
+            <button type="button" class="btn btn-primary" (click)="confirmarExclusao()">Sim</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,10 +16,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.univille.projfabsoftescolamusica.entity.Instrumento;
 import br.univille.projfabsoftescolamusica.service.InstrumentoService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/v1/instrumento")
 public class InstrumentoController {
+    @GetMapping("/{id}")
+    public ResponseEntity<Instrumento> getInstrumentoId(@PathVariable long id){
+        var instrumento = service.getByID(id);
+
+        return new ResponseEntity<Instrumento>(instrumento, HttpStatus.OK);
+    }
+    
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
     @Autowired
     private InstrumentoService service;
 

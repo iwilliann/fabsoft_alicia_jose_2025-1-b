@@ -16,6 +16,17 @@ export class AlunoService {
   }
 
   saveAluno(aluno: Aluno){
-    return this.http.post(this.apiURL, aluno);
+    if(aluno.id){
+      return this.http.put(this.apiURL + '/' + aluno.id, aluno); // Atualiza um aluno pelo ID, no caminho PUT localhost:8080/api/v1/aluno/{id}
+    }
+      return this.http.post(this.apiURL, aluno);
+  }
+
+  getAlunoById(id: any){
+    return this.http.get<Aluno>(this.apiURL + '/' + id); // Retorna um aluno pelo ID, no caminho GET localhost:8080/api/v1/aluno/{id}?
+  }
+
+  excluirAluno(id: any){
+  return this.http.delete<Aluno>(this.apiURL + '/' + id);
   }
 }

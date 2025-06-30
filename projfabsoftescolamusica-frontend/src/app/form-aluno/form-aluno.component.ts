@@ -4,7 +4,7 @@ import { AlunoService } from '../service/aluno.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-form-aluno',
@@ -14,12 +14,33 @@ import { Router } from '@angular/router';
   providers: [AlunoService, Router]
 })
 export class FormAlunoComponent {
+abrirConfirmacao(arg0: any) {
+throw new Error('Method not implemented.');
+}
+umAluno: any;
+alterar(arg0: any) {
+throw new Error('Method not implemented.');
+}
+confirmarExclusao() {
+throw new Error('Method not implemented.');
+}
+fecharConfirmacao() {
+throw new Error('Method not implemented.');
+}
   aluno: Aluno = new Aluno();
 
   constructor(
     private alunoService: AlunoService,
-    private router: Router
-  ){}
+    private router: Router,
+    private activedRoute: ActivatedRoute
+  ){
+    const id = this.activedRoute.snapshot.paramMap.get('id');
+    if (id) {
+      this.alunoService.getAlunoById(id).subscribe(aluno => {
+          this.aluno = aluno;
+        });
+    }
+  }
 
   salvar(){
     this.alunoService.saveAluno(this.aluno)

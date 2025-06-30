@@ -16,10 +16,22 @@ import org.springframework.web.bind.annotation.RestController;
 import br.univille.projfabsoftescolamusica.entity.Emprestimo;
 import br.univille.projfabsoftescolamusica.service.EmprestimoService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/v1/emprestimo")
 public class EmprestimoController {
+    @GetMapping("/{id}")
+    public ResponseEntity<Emprestimo> getEmprestimoId(@PathVariable Long id){
+        var emprestimo = service.getByID(id);
+        return new ResponseEntity<Emprestimo>(emprestimo, HttpStatus.OK);
+    }
+    
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    
     @Autowired
     private EmprestimoService service;
 

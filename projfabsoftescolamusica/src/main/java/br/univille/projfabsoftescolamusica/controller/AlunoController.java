@@ -31,18 +31,17 @@ public class AlunoController {
         return new ResponseEntity<List<Aluno>>(listaAluno, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Aluno> getAlunoId(@PathVariable long id){  // angular chama localhost:8080/api/v1/aluno/1 e retorna o aluno com id 1
+      var umAluno = service.getByID(id);
+      return new ResponseEntity<Aluno>(umAluno, HttpStatus.OK);
+    }
 
     //POST
     @PostMapping
     public ResponseEntity<Aluno> postAluno(@RequestBody Aluno aluno){
-        if(aluno == null){
-            return ResponseEntity.badRequest().build();
-        }
-        if (aluno.getId() == 0){
-            service.save(aluno);
-            return new ResponseEntity<Aluno>(aluno, HttpStatus.OK);
-        }
-        return ResponseEntity.badRequest().build();
+        service.save(aluno);
+        return new ResponseEntity<Aluno>(aluno, HttpStatus.OK);
     }
 
 
