@@ -1,7 +1,11 @@
 package br.univille.projfabsoftescolamusica.entity;
 
 import jakarta.persistence.*;
+
+
 import java.time.LocalDate;
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Emprestimo {
@@ -9,8 +13,13 @@ public class Emprestimo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    private LocalDate dataInicio;
-    private LocalDate dataFim;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dataInicio;
+
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dataFim;
 
     @ManyToOne (cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     private Aluno aluno;
@@ -45,19 +54,19 @@ public class Emprestimo {
         this.instrumento = instrumento;
     }
 
-    public LocalDate getDataInicio() {
+    public Date getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(LocalDate dataInicio) {
+    public void setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public LocalDate getDataFim() {
+    public Date getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(LocalDate dataFim) {
+    public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
 }
